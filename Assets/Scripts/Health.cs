@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     LevelManager levelManager;
     ScoreKeeper scoreKeeper;
     Animator animator;
+    ParticleSystem myParticleSystem;
 
     // The Awake method is called when the script instance is being loaded
     void Awake()
@@ -17,7 +18,8 @@ public class Health : MonoBehaviour
         audiolayer = FindFirstObjectByType<AudioPlayer>();
         levelManager = FindFirstObjectByType<LevelManager>();
         scoreKeeper = FindFirstObjectByType<ScoreKeeper>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
+        myParticleSystem = GetComponent<ParticleSystem>();
     }
 
     // on trigger
@@ -39,7 +41,7 @@ public class Health : MonoBehaviour
 
         if (health <= 0) // If health is less than or equal to 0
         {
-            Die(); 
+            Die();
         }
 
         audiolayer.PlayDamageClip();
@@ -51,12 +53,15 @@ public class Health : MonoBehaviour
         if (isEnemy)
         {
             scoreKeeper.ModifyScore(scoreToAdd);
-        } else
-        {
-            levelManager.LoadGameOver();
-            animator.SetTrigger("die");
         }
-        Destroy(gameObject);  // it destroys the game object this script is attached to
+        else
+        {
+            myParticleSystem.Stop();
+            animator.SetTrigger("die");
+            levelManager.LoadGameOver();
+
+        }
+        Destroy(gameObject, 2f);  // it destroys the game object this script is attached to
     }
 
     // get the current health
