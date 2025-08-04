@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     // move speed
-    [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float moveSpeed = 5f;
 
     // padding limit for the player
     [SerializeField] float paddingTop = 2f;

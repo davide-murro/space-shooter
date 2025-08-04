@@ -127,14 +127,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 655257952479651486, guid: da22d296ae2777948a3739d106806d58, type: 3}
-      propertyPath: moveSpeed.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4956523141556142117, guid: da22d296ae2777948a3739d106806d58, type: 3}
-      propertyPath: moveSpeed.y
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 6427689614942268512, guid: da22d296ae2777948a3739d106806d58, type: 3}
       propertyPath: m_Name
       value: Background
@@ -1024,11 +1016,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1470458621771618577, guid: 27fd30bbaa657474a99a00945dd38a74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 540
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1470458621771618577, guid: 27fd30bbaa657474a99a00945dd38a74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 960
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1470458621771618577, guid: 27fd30bbaa657474a99a00945dd38a74, type: 3}
       propertyPath: m_LocalPosition.z
