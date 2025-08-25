@@ -9,8 +9,10 @@ public class Health : MonoBehaviour
     AudioPlayer audiolayer;
     LevelManager levelManager;
     ScoreKeeper scoreKeeper;
-    Animator animator;
     ParticleSystem myParticleSystem;
+    DamageDealer damageDealer;
+    Shooter shooter;
+    Animator animator;
 
     // The Awake method is called when the script instance is being loaded
     void Awake()
@@ -19,6 +21,8 @@ public class Health : MonoBehaviour
         levelManager = FindFirstObjectByType<LevelManager>();
         scoreKeeper = FindFirstObjectByType<ScoreKeeper>();
         myParticleSystem = GetComponent<ParticleSystem>();
+        damageDealer = GetComponent<DamageDealer>();
+        shooter = GetComponent<Shooter>();
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -60,7 +64,10 @@ public class Health : MonoBehaviour
             levelManager.LoadGameOver();
         }
         animator.SetTrigger("die");
-        Destroy(gameObject, 1f);  // it destroys the game object this script is attached to
+        Destroy(this);              // it destroys only the health
+        Destroy(damageDealer);      // it destroys only the damage dealer
+        Destroy(shooter);      // it destroys only the damage dealer
+        Destroy(gameObject, 1f);    // it destroys the game object this script is attached to
     }
 
     // get the current health
